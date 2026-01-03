@@ -128,44 +128,6 @@ void processTask(char **tokens, int tokensSize) {
 	
 }
 
-/*
-void processPiped(char ***commands, int commandsSize, int i) {
-
-	if (i == commandsSize - 1) {
-		return;
-	} else {
-		pid_t pid = fork();
-
-		int fd[2];
-
-		if (pipe(fd) == -1) {
-			fprintf("Couldn't create pipe\n");
-			return;
-		}
-
-		if (pid == 0) {
-			close(fd[1]);
-
-			dup2(fd[0], 0);
-
-			close(fd[0]);
-			close(fd[1]);
-
-			execvp(commands[i + 1][0], commands[i + 1]);
-
-		} else {
-			close(fd[0]);
-
-			dup2(fd[1], 1);
-
-			close(fd[0]);
-			close(fd[1]);
-			execvp(commands[i][0], commands[i]);
-		}
-	}
-}
-*/
-
 int main() {
 	 while(1) {
 		char *line = NULL;
